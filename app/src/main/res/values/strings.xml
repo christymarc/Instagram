@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Instagram</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_success">Successful Login</string>
+    <string name="login_error">Login error</string>
+    <string name="logout">Logout</string>
+</resources>
