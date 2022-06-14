@@ -6,4 +6,10 @@
     <string name="login_success">Successful Login</string>
     <string name="login_error">Login error</string>
     <string name="logout">Logout</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="add">Add</string>
+    <string name="profile">Profile</string>
+    <string name="description">Description</string>
 </resources>
