@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
         photoButton = findViewById(R.id.photoButton);
         submitButton = findViewById(R.id.submitButton);
         
-        queryPosts();
-        
         photoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,13 +95,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        // do something here
-                        return true;
-                    case R.id.add:
-                        // do something here
+                        Intent intent = new Intent(MainActivity.this, FeedActivity.class);
+                        startActivity(intent);
                         return true;
                     case R.id.profile:
-                        onLogoutButton(findViewById(R.id.profile));
+                        onLogoutButton(item);
                         return true;
                     default: return true;
                 }
@@ -212,25 +208,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void queryPosts() {
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.include(Post.KEY_USER);
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Query posts error", e);
-                    return;
-                }
-                for (Post post : posts) {
-                    Log.i(TAG, "Description: " + post.getKeyDescription() +
-                            "\nUser: " + post.getKeyUser().getUsername());
-                }
-            }
-        });
-    }
-
-    public void onLogoutButton(View view) {
+    public void onLogoutButton(MenuItem item) {
         ParseUser.logOut();
         currentUser = ParseUser.getCurrentUser();
 
