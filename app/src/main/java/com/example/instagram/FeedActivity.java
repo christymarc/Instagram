@@ -3,9 +3,14 @@ package com.example.instagram;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -21,6 +26,7 @@ public class FeedActivity extends AppCompatActivity {
     private RecyclerView rvPosts;
     protected List<Post> allPosts;
     protected PostAdapter adapter;
+    SwipeRefreshLayout swipeContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +38,32 @@ public class FeedActivity extends AppCompatActivity {
         // initialize the array that will hold posts and create a PostsAdapter
         allPosts = new ArrayList<>();
         adapter = new PostAdapter(FeedActivity.this, allPosts);
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
 
         // set the adapter on the recycler view
         rvPosts.setAdapter(adapter);
         // set the layout manager on the recycler view
         rvPosts.setLayoutManager(new LinearLayoutManager(this));
-        // query posts from Parstagram
+
         queryPosts();
+
+        // query posts from Parstagram
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                adapter.clear();
+                queryPosts();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
 
     private void queryPosts() {
