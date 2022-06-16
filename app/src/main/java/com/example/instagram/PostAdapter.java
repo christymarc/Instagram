@@ -3,6 +3,7 @@ package com.example.instagram;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;

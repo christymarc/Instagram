@@ -3,17 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/logout"
+        android:enabled="true"
+        android:icon="?attr/actionModeCloseDrawable"
+        android:title="@string/logout"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/home"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/search"
-        android:enabled="true"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="@string/search"
-        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/add"
         android:enabled="true"

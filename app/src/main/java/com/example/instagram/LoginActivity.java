@@ -63,9 +63,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if (e != null) {
-                    // TODO: Need better error logging
-                    Log.e(TAG, String.valueOf(R.string.login_error), e);
-                    Toast.makeText(LoginActivity.this, R.string.login_error, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Invalid Username/Password", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     goMainActivity();
@@ -93,8 +91,13 @@ public class LoginActivity extends AppCompatActivity {
                 if (e == null) {
                     goMainActivity();
                 } else {
-                    Log.e(TAG, "SignUp error", e);
-                    Toast.makeText(LoginActivity.this, "SignUp Error", Toast.LENGTH_SHORT).show();
+                    String account_exists = "Account already exists";
+                    if (e.toString().contains(account_exists)) {
+                        Toast.makeText(LoginActivity.this, account_exists, Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(LoginActivity.this, "SignUp Error", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
