@@ -51,7 +51,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<imgsrc = ![instagram](https://user-images.githubusercontent.com/70297740/174384048-608a20b8-7c2e-4ee7-9015-c485b07aa674.gif) title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src="[/images/output/video1.gif](https://user-images.githubusercontent.com/70297740/174384048-608a20b8-7c2e-4ee7-9015-c485b07aa674.gif)" width="250"/>
 
 ## Credits
 
