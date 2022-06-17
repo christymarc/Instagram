@@ -8,12 +8,11 @@
     android:orientation="vertical"
     android:clickable="true">
 
-    <ImageView
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/ivPost"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:scaleType="matrix"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/tvUser"
